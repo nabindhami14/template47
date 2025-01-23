@@ -100,6 +100,13 @@ export default eslintConfig;
 
 > [ESLint Plugin](https://nextjs.org/docs/app/api-reference/config/eslint#with-prettier) | [Prettier plugin sort imports](https://github.com/trivago/prettier-plugin-sort-imports/) | [Automatic Class Sorting with Prettier](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
 
+## COMPONENT LIBRARY
+
+```sh
+pnpm dlx shadcn@latest init -d
+pnpm dlx shadcn@latest add button
+```
+
 ---
 
 > [NEXTJS FAQ](https://nextjs-faq.com/) | [Bulletproof React](https://github.com/alan2207/bulletproof-react) | [Next.js Starter Template](https://www.youtube.com/watch?v=dLRKV-bajS4&t=749s&ab_channel=Syntax)
