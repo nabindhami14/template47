@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CREATIVE NEPAL
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+pnpm dlx create-next-app@latest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## CONFIGURING DEVELOPMENT ENVIROMENT
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+pnpm add --save-dev eslint-config-prettier
+pnpm add --save-dev @trivago/prettier-plugin-sort-imports
+pnpm add --save-dev prettier prettier-plugin-tailwindcss
+pnpm add --save-dev eslint-plugin-check-file
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```js
+import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-## Learn More
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-To learn more about Next.js, take a look at the following resources:
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+const eslintConfig = [
+  ...compat.config({
+    extends: ["next/core-web-vitals", "next/typescript", "prettier"],
+    plugins: ["check-file"],
+    rules: {
+      "prefer-arrow-callback": ["error"],
+      "prefer-template": ["error"],
+      semi: ["error"],
+      quotes: ["error", "double"],
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/*.{ts,tsx}": "KEBAB_CASE",
+        },
+        {
+          ignoreMiddleExtensions: true,
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "src/**/!^[.*": "KEBAB_CASE",
+        },
+      ],
+    },
+  }),
+];
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export default eslintConfig;
+```
 
-## Deploy on Vercel
+```json
+{
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "importOrder": [
+    "^(react|next?/?([a-zA-Z/]*))$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> `.prettierrc`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+"format": "prettier src/ --write"
+```
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
+```
+
+> `.vscode/settings.json`
+
+> [ESLint Plugin](https://nextjs.org/docs/app/api-reference/config/eslint#with-prettier) | [Prettier plugin sort imports](https://github.com/trivago/prettier-plugin-sort-imports/) | [Automatic Class Sorting with Prettier](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+
+---
+
+> [NEXTJS FAQ](https://nextjs-faq.com/) | [Bulletproof React](https://github.com/alan2207/bulletproof-react) | [Next.js Starter Template](https://www.youtube.com/watch?v=dLRKV-bajS4&t=749s&ab_channel=Syntax)
