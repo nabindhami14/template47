@@ -107,6 +107,12 @@ pnpm dlx shadcn@latest init -d
 pnpm dlx shadcn@latest add button
 ```
 
+```sh
+pnpm add next-themes
+```
+
+> [DARK MODE](https://ui.shadcn.com/docs/dark-mode/next)
+
 ---
 
 > [NEXTJS FAQ](https://nextjs-faq.com/) | [Bulletproof React](https://github.com/alan2207/bulletproof-react) | [Next.js Starter Template](https://www.youtube.com/watch?v=dLRKV-bajS4&t=749s&ab_channel=Syntax)

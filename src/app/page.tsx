@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
+import ThemeSwitcher from "@/components/global/theme-switcher";
 
 const Home = () => {
-  return <Button>Home</Button>;
+  return <ThemeSwitcher />;
 };
 
 export default Home;
