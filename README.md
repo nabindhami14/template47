@@ -113,6 +113,16 @@ pnpm add next-themes
 
 > [DARK MODE](https://ui.shadcn.com/docs/dark-mode/next)
 
+## AUTHENTICATION
+
+```sh
+pnpm add next-auth@beta
+npx auth secret
+```
+
+> [AUTHJS](https://authjs.dev/getting-started/installation?framework=next-js)  
+> [PROTECTING RESOURCES](https://authjs.dev/getting-started/session-management/protecting?framework=next-js)
+
 ---
 
 > [NEXTJS FAQ](https://nextjs-faq.com/) | [Bulletproof React](https://github.com/alan2207/bulletproof-react) | [Next.js Starter Template](https://www.youtube.com/watch?v=dLRKV-bajS4&t=749s&ab_channel=Syntax)
